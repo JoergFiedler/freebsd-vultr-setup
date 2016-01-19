@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 INTERFACE="${EXT_IF:-vtnet0}"
-PACKAGES="${PACKAGES:-ca_root_nss sudo bash}"
+PACKAGES="${PACKAGES:-ca_root_nss sudo bash python}"
 PUBLIC_KEY="${SSH_PUBLIC_KEY_URL:-/https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub}"
 USER="${SSH_USER:-vagrant}"
 
@@ -10,6 +10,7 @@ echo 'hostname="marvin.darkcity"' >> /etc/rc.conf
 echo 'ifconfig_'${INTERFACE}'="DHCP -tso"' >> /etc/rc.conf
 
 # Enable services
+echo 'sendmail_enable="NONE"' >> /etc/rc.conf
 echo 'sshd_enable="YES"' >> /etc/rc.conf
 echo 'pf_enable="YES"' >> /etc/rc.conf
 echo 'pflog_enable="YES"' >> /etc/rc.conf
