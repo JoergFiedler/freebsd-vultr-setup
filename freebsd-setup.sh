@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
-INTERFACE="vtnet0"
-PACKAGES="ca_root_nss sudo bash"
-PUBLIC_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub"
-USER="vagrant"
+INTERFACE="${EXT_IF:-vtnet0}"
+PACKAGES="${PACKAGES:-ca_root_nss sudo bash}"
+PUBLIC_KEY="${SSH_PUBLIC_KEY_URL:-/https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub}"
+USER="${SSH_USER:-vagrant}"
 
 # Network configuration
 echo 'hostname="marvin.darkcity"' >> /etc/rc.conf
