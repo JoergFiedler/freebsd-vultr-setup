@@ -43,7 +43,7 @@ rm /etc/ssl/cert.pem
 ln -s /usr/local/share/certs/ca-root-nss.crt /etc/ssl/cert.pem
 
 # Create the user
-echo ${USER} | pw useradd -n ${USER} -s /usr/local/bin/bash -m -G wheel -H 0
+echo "*" | pw useradd -n ${USER} -s /usr/local/bin/bash -m -G wheel -H 0
 
 # Enable sudo for user
 mkdir -p /usr/local/etc/sudoers.d
