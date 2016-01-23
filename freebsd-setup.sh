@@ -38,8 +38,8 @@ env ASSUME_ALWAYS_YES=true /usr/sbin/pkg bootstrap -f
 pkg update
 
 # Update Base
-freebsd-update fetch
-freebsd-update install
+freebsd-update fetch --not-running-from-cron
+freebsd-update install --not-running-from-cron
 
 # Install required packages
 for package in ${PACKAGES}; do
