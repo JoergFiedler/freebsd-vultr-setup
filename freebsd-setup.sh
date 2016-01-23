@@ -75,6 +75,9 @@ pkg clean -a -y
 # Empty out tmp directory
 rm -rf /tmp/*
 
+# Make bash happy
+echo "fdesc /dev/fd fdescfs rw 0 0" >> /etc/fstab
+
 # Remove the history
 cat /dev/null > /root/.history
 
