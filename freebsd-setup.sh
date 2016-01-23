@@ -63,6 +63,9 @@ chmod 700 /home/${USER}/.ssh
 touch /home/${USER}/.ssh/authorized_keys
 chown -R ${USER}:${USER} /home/${USER}
 
+# Disable root's password
+chpass -p "*" root
+
 # Get the public key and save it in the `authorized_keys`
 fetch -o /home/${USER}/.ssh/authorized_keys ${PUBLIC_KEY}
 
