@@ -7,7 +7,7 @@ PUBLIC_KEY="${SSH_PUBLIC_KEY_URL:-/https://raw.github.com/mitchellh/vagrant/mast
 USER="${SSH_USER:-vagrant}"
 
 # ZFS filesystems
-zfs create -o mountpoint=/home tank/home
+zfs create -o mountpoint=/home tank/root/home
 
 # Network configuration
 echo 'hostname="${HOSTNAME}"' >> /etc/rc.conf
