@@ -1,12 +1,16 @@
 #!/bin/sh -e
 
+HOST_NAME="${HOSTNAME:-marvin.darkcity}"
 INTERFACE="${EXT_IF:-vtnet0}"
 PACKAGES="${PACKAGES:-ca_root_nss sudo bash python}"
 PUBLIC_KEY="${SSH_PUBLIC_KEY_URL:-/https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub}"
 USER="${SSH_USER:-vagrant}"
 
+# ZFS filesystems
+zfs create -o mountpoint=/home tank/home
+
 # Network configuration
-echo 'hostname="marvin.darkcity"' >> /etc/rc.conf
+echo 'hostname="${HOSTNAME}"' >> /etc/rc.conf
 echo 'ifconfig_'${INTERFACE}'="DHCP -tso"' >> /etc/rc.conf
 
 # Enable services
